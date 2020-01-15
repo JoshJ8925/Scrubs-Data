@@ -1,0 +1,61 @@
+.Lockscreen {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-clip: content-box;
+}
+
+.textAlign {
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.buttonStyle {
+  align-items: center;
+  text-align: center;
+  color: rgb(34, 34, 34);
+  font-weight: bolder;
+  background-color: #2dce89;
+}
+
+.opacity {
+  opacity: 0.8;
+}
+
+.buttonStyle:hover {
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 20, 197, 0.671);
+  color: whitesmoke;
+  text-shadow: black 7px 9px 10px;
+}
+
+.border {
+  box-shadow: grey 0.5px 0.5px 5px -1.5px;
+}
+
+.borders {
+  box-shadow: rgb(26, 26, 26) 20px 20px 20px 20px;
+}
+
+.bordersss {
+  box-shadow: black 1.5px 1px 15px -6.4px;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
