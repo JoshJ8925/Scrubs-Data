@@ -1,0 +1,33 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQs_Delete_ById]    Script Date: 1/15/2020 4:09:20 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc  [dbo].[FAQs_Delete_ById]
+					@Id int
+	
+	as
+/*
+	
+	DECLARE @Id int = 2
+
+	SELECT *
+	FROM dbo.FAQs
+	WHERE Id = @Id
+
+	DELETE FROM [dbo].[FAQs]
+	WHERE Id = @Id
+
+	SELECT *
+	FROM dbo.FAQs
+	WHERE Id = @Id
+	
+*/
+		BEGIN
+
+				DELETE FROM [dbo].[FAQs]
+				WHERE Id = @Id
+
+		END
