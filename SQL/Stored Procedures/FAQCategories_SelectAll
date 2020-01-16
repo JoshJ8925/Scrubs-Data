@@ -1,0 +1,31 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQCategories_SelectAll]  
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		Josh Johnson
+-- Description:FAQCategories Select All
+-- =============================================
+
+ALTER PROC [dbo].[FAQCategories_SelectAll]
+AS
+
+/*=================================
+
+		
+		EXECUTE dbo.FAQCategories_SelectAll                       
+				
+
+=====================================*/
+
+    BEGIN
+        SELECT [Id], 
+               [Name] 
+               
+        FROM [dbo].[FAQCategories]
+        ORDER BY Id;
+    END;
