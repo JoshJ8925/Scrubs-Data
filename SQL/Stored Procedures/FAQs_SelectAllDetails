@@ -1,0 +1,34 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQs_SelectAllDetails]
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[FAQs_SelectAllDetails]
+
+AS
+
+/* ======================================
+
+EXECUTE dbo.FAQs_SelectAllDetails
+
+======================================== */
+
+BEGIN
+
+	SELECT
+		f.Id
+		,Question
+		,Answer
+		,DateCreated
+		,DateModified
+		,CreatedBy
+		,ModifiedBy
+	FROM
+		[dbo].[FAQs] AS f
+		JOIN dbo.FAQCategories AS fc
+		ON f.CategoryId = fc.Id
+	ORDER BY SortOrder
+	
+END
