@@ -1,0 +1,34 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQs_Select_ById]   
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc  [dbo].[FAQs_Select_ById]
+					@Id int
+
+	as
+/*
+	DECLARE @Id int = 1
+
+	EXECUTE dbo.FAQs_Select_ById
+			@Id
+
+			Select * from dbo.FAQs
+*/
+		BEGIN
+
+				SELECT [Id],
+						[Question],
+						[Answer],
+						[CategoryId],
+						[SortOrder],
+						[DateCreated],
+						[DateModified],
+						[CreatedBy],
+						[ModifiedBy]
+				FROM [dbo].[FAQs]
+				WHERE CategoryId = @Id
+
+		END
