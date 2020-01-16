@@ -1,0 +1,51 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQs_Select_ByCreatedBy]   
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc  [dbo].[FAQs_Select_ByCreatedBy]
+					@CreatedBy int,
+					@PageIndex int,
+					@PageSize int
+
+	as
+/*
+
+	DECLARE @CreatedBy int = 3,
+			@PageIndex int = 0,
+			@PageSize int = 10
+
+	EXECUTE dbo.FAQs_Select_ByCreatedBy
+				@CreatedBy,
+				@PageIndex,
+				@PageSize
+
+	Select *
+	From dbo.FAQs
+
+
+*/
+		BEGIN
+
+				DECLARE @Offset int = @PageIndex * @PageSize
+
+				SELECT [Id],
+						[Question],
+						[Answer],
+						[CategoryId],
+						[SortOrder],
+						[DateCreated],
+						[DateModified],
+						[CreatedBy],
+						[ModifiedBy],
+						[TotalCount] = COUNT(1) OVER()
+
+				FROM [dbo].[FAQs]
+				WHERE CreatedBy = @CreatedBy
+				ORDER BY Id
+				OFFSET @Offset ROWS
+				FETCH NEXT @PageSize ROWS ONLY
+
+		END
