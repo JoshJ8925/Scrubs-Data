@@ -1,0 +1,60 @@
+USE [C81_ScrubsData]
+GO
+/****** Object:  StoredProcedure [dbo].[FAQs_Update]  
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc  [dbo].[FAQs_Update]
+					@Question nvarchar(255),
+					@Answer nvarchar(2000),
+					@CategoryId int,
+					@SortOrder int,
+					@ModifiedBy int,
+					@Id int
+
+	as
+/*
+
+
+Declare
+	  @Question nvarchar(255) = 'Question' 
+     ,@Answer nvarchar(2000) = 'No' 
+      ,@CategoryId int = 2 
+      ,@SortOrder int = 5 
+      ,@ModifiedBy int = 411
+	  ,@Id int = 1
+
+SELECT *
+FROM dbo.FAQs
+WHERE Id = 1;
+
+
+EXECUTE  [dbo].[FAQs_Update]
+      @Question
+      ,@Answer 
+      ,@CategoryId
+      ,@SortOrder 
+      ,@ModifiedBy
+	  ,@Id
+						
+	SELECT *
+	FROM dbo.FAQs
+	WHERE Id = 1
+
+*/
+		BEGIN
+
+				DECLARE @DateModified datetime2(7) = getutcdate()
+
+				UPDATE [dbo].[FAQs]
+					SET [Question] = @Question,
+						[Answer] = @Answer,
+						[CategoryId] = @CategoryId,
+						[SortOrder] = @SortOrder,
+						[ModifiedBy] = @ModifiedBy
+				
+					WHERE Id = @Id
+
+		END
+
